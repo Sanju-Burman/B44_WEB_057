@@ -1,0 +1,84 @@
+/* General Form Styling */
+.form {
+    justify-items:baseline;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 10px solid #f84646;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.fItem{
+    
+}
+/* Form Title */
+h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+    /* color: #333; */
+}
+
+/* Form Group Styling */
+.grid {
+    display: grid;
+    gap: 10px;
+}
+
+/* Checkbox Styling */
+input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #888;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #4caf50;
+    border-color: #4caf50;
+}
+
+/* Checkbox Label Styling */
+label {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: #555;
+    cursor: pointer;
+}
+
+label:hover input[type="checkbox"] {
+    border-color: #4caf50;
+}
+
+/* Buttons Styling */
+button {
+    width: 10rem;
+    padding: 10px;
+    background-color: #007bff;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 2px solid #000;
+}
+
+
+/* Responsive Styling */
+@media (max-width: 600px) {
+    form {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
+}
