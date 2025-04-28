@@ -1,0 +1,134 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9fafb;
+}
+
+/* Container Styling */
+.p-8 {
+    padding: 2rem;
+}
+
+.text-3xl {
+    font-size: 1.875rem;
+    /* 30px */
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.grid-cols-1 {
+    grid-template-columns: 1fr;
+}
+
+.md\:grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.gap-6 {
+    gap: 1.5rem;
+}
+
+/* Destination Card Styling */
+.border {
+    border: 1px solid #e5e7eb;
+    /* Light gray border */
+}
+
+.p-4 {
+    padding: 1rem;
+}
+
+.rounded {
+    border-radius: 0.25rem;
+    /* Small rounded corners */
+}
+
+.shadow {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.hover\:shadow-lg:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.transition {
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+/* Image Styling */
+.h-40 {
+    height: 10rem;
+    /* 160px */
+}
+
+.w-full {
+    width: 100%;
+}
+
+.object-cover {
+    object-fit: cover;
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+.rounded {
+    border-radius: 0.25rem;
+}
+
+/* Text Styling */
+.text-2xl {
+    font-size: 1.5rem;
+    /* 24px */
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.text-xl {
+    font-size: 1.25rem;
+    /* 20px */
+    font-weight: 600;
+}
+
+.text-gray-600 {
+    color: #4b5563;
+    /* Dark gray text */
+}
+
+.text-gray-500 {
+    color: #6b7280;
+    /* Medium gray text */
+}
+
+.mt-2 {
+    margin-top: 0.5rem;
+}
+
+.mt-1 {
+    margin-top: 0.25rem;
+}
+
+.text-indigo-600 {
+    color: #4f46e5;
+    /* Indigo text */
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.font-medium {
+    font-weight: 500;
+}

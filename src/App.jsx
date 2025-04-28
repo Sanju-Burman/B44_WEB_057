@@ -8,6 +8,9 @@ import StepReview from "./components/survey/StepReview";
 import ThemeToggleButton from "./components/themeToggleButton";
 import { ThemeProvider } from "./context/ThemeContext";
 import ThankYouPage from "./pages/thanku";
+import AuthPage from "./pages/AuthPage";
+import ProfilePage from "./pages/profilePage";
+// import RecommendationPage from "./pages/recomPage";
 
 function App() {
 
@@ -20,10 +23,13 @@ function App() {
 
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/auth" element={<AuthPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
 
             <Route path="/yatra" element={<SurveyPage />} />
             <Route path="/thanku" element={<ThankYouPage />} />
             <Route path="/review" element={<StepReview />} />
+            {/* <Route path="/recommendations" element={<RecommendationPage />} /> */}
 
             <Route path="*" element={<Home />} /> {/* fallback */}
           </Routes>

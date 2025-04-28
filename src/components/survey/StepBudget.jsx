@@ -3,12 +3,12 @@ import { useState } from "react";
 
 const StepBudget = () => {
     const { formData, updateForm } = useSurvey();
-    const [budget, setBudget] = useState(formData.budget || 1000);
+    const [budget, setBudget] = useState(1000);
 
     const handleBudget = (e) => {
         setBudget(Number(e.target.value))
+        // console.log(budget);
         updateForm({ budget });
-        
     };
 
     return (
