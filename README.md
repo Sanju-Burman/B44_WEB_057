@@ -33,7 +33,7 @@ my-destination-platform/
 ```
 
 ## 🎥 Video Walkthrough
-> **(Attach 1-3 min video showing main features — Survey, Recommendations, Profile, etc.)**
+> **(Attach 1-3 min video showing main features — Survey, Recommendations, Profile, etc.)[https://youtu.be/OrY_tJoF7g0]**
 
 ## 🎥 Codebase Walkthrough
 > **(Attach 1-5 min video showing project structure, key components, auth flow, etc.)**
@@ -62,8 +62,8 @@ my-destination-platform/
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-username/destination-recommendation-platform.git
-cd destination-recommendation-platform
+git clone https://github.com/Sanju-Burman/B44_WEB_057
+cd B44_WEB_057
 
 # Install backend dependencies
 cd backend
