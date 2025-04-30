@@ -12,18 +12,21 @@ const center = {
     lng: 0,
 };
 
-const DestinationMap = ({destination} ) => {
+const DestinationMap = (destination ) => {
     const [selectedDestination, setSelectedDestination] = useState(null);
-    console.log(destination);
+    // Debug destination prop
+    console.log("Destination passed:", destination);
+    // console.log("Selected Destination:", selectedDestination);
+
     return (
         <LoadScript googleMapsApiKey={GMAP_KEY}>
             <GoogleMap
                 mapContainerStyle={mapContainerStyle}
                 center={center}
-                zoom={2}
+                zoom={5}
             >
                     <Marker
-                        position={{ lat: destination.lat, lng: destination.lng }}
+                    position={{ lat: destination.latitude, lng: destination.longitude }}
                         title={destination.name}
                         onClick={() => setSelectedDestination(destination)}
                     />
@@ -31,17 +34,17 @@ const DestinationMap = ({destination} ) => {
                 {selectedDestination && (
                     <InfoWindow
                         position={{
-                            lat: selectedDestination.lat,
-                            lng: selectedDestination.lng,
+                            lat: selectedDestination.latitude,
+                            lng: selectedDestination.longitude,
                         }}
                         onCloseClick={() => setSelectedDestination(null)}
                     >
-                        <div style={{ maxWidth: '200px' }}>
+                        {/* <div style={{ maxWidth: '200px' }}>
                             <h3 className="font-bold text-lg">{selectedDestination.name}</h3>
                             <p><strong>Cost:</strong> ${selectedDestination.averageCost}</p>
                             <p><strong>Styles:</strong> {selectedDestination.styles.join(', ')}</p>
                             <p><strong>Tags:</strong> {selectedDestination.tags.join(', ')}</p>
-                        </div>
+                        </div> */}
                     </InfoWindow>
                 )}
             </GoogleMap>

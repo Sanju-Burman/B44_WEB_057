@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import "../../styles/recom.css"
-// import DestinationMap from "../map/DestinationMap"
+import DestinationMap from "../map/DestinationMap"
 import { fetchDestinations } from "../../utils/api";
 
 const Recommendation = () => {
@@ -54,7 +54,7 @@ const Recommendation = () => {
                     {recommendations.map((dest, idx) => (
                         <div key={idx} className="border p-4 rounded shadow hover:shadow-lg transition">
                             <h2 className="text-2xl font-bold mb-4">Explore Destinations</h2>
-                            {/* <DestinationMap destinations={dest} /> */}
+                            <DestinationMap destinations={{...dest}} />
                             <img
                                 src={dest.imageUrl}
                                 alt={dest.name}
