@@ -1,7 +1,7 @@
 import { useSurvey } from "../../context/SurveyContext";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { uploadForm } from "../../utils/api";
 
 const StepReview = () => {
     const { formData,updateForm} = useSurvey();
@@ -11,25 +11,22 @@ const StepReview = () => {
     const handleSubmit = async (e) => {
         e.preventDefault(); // Prevent default form submission behavior
         try {
-            updateForm({user:User.userId})
-            // console.log(User.userId,formData)
-            const response = await axios.post("http://localhost:9000/api/survey/", formData);
+            // Update form with user information
+            updateForm({ user: User.userId });
 
+            // API call to submit survey form
+            const response = await uploadForm(formData);
+
+            // Check for success response
             if (response.status === 201) {
-                if (!localStorage.getItem("surveyData")) {
-                    localStorage.setItem("surveyData", JSON.stringify(formData));
-                    toast.success("Survey submitted successfully!");
-                    navigate("/thanku")
-                } else {
-                    localStorage.removeItem("surveyData")
-                    localStorage.setItem("surveyData", JSON.stringify(formData));
-                    toast.success("Survey submitted successfully!");
-                    navigate("/thanku")
-                }
+                toast.success("Survey submitted successfully!");
+                navigate("/thanku");
             } else {
                 toast.error("Unexpected response. Please try again.");
+                console.warn("Unexpected response status:", response.status);
             }
         } catch (err) {
+            // Handle submission error
             toast.error("Submission failed. Please try again later.");
             console.error("Error submitting survey:", err);
         }

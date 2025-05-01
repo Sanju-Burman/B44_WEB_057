@@ -1,10 +1,36 @@
 import axios from "axios";
 
-const BE_API = import.meta.env.VITE_Backend_API
-const API = axios.create({
-    baseURL: BE_API
+const BE_API = import.meta.env.VITE_Backend_API;
 
+if (!BE_API) {
+    throw new Error("Backend API URL is not defined!");
+}
+
+const API = axios.create({
+    baseURL: BE_API,
+    headers: {
+        "Content-Type": "application/json"
+    }
 });
+
+export const uploadForm = async (data) => {
+    try {
+        if (!data || typeof data !== "object") {
+            throw new Error("Invalid data: Data must be a valid object.");
+        }
+
+        const response = await API.post("/survey", data);
+
+        if (response.status === 201) {
+            localStorage.setItem("surveyData", JSON.stringify(data));
+        }
+
+        return response;
+    } catch (error) {
+        console.error("Failed to upload form:", error);
+        throw new Error("An error occurred while uploading the form.");
+    }
+}
 
 // Login API
 export const login = async ({ email, password }) => {
@@ -53,8 +79,8 @@ export const recommendetionData = async (storedData) => {
     try {
         const response = API.post("/api/recom", storedData);
         return (await response).data;
-    }catch(error) {
-        console.error({msg:"fail for recommendation",error})
+    } catch (error) {
+        console.error({ msg: "fail for recommendation", error })
     }
 }
 
@@ -66,8 +92,8 @@ export const fetchDestinations = async () => {
         return cachedDestinations;
     }
     try {
-        const response = await API.get('/destinations'); 
-        cachedDestinations = response.data; 
+        const response = await API.get('/destinations');
+        cachedDestinations = response.data;
         return cachedDestinations;
     } catch (error) {
         console.error("Error fetching destination data:", error);
