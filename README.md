@@ -8,9 +8,9 @@ This project solves the problem of overwhelming choices by offering smart, tailo
 **Fullstack**
 
 ## 🌐 Deployed App
-- Frontend: https://your-frontend-deployed-site.com
-- Backend: https://your-backend-deployed-site.com
-- Database: MongoDB Atlas (or your hosted MongoDB)
+- Frontend: https://happyyatra.netlify.app/
+- Backend: https://happyatra.vercel.app/
+- Database: MongoDB Atlas
 
 ## 📂 Directory Structure
 ```
@@ -33,7 +33,7 @@ my-destination-platform/
 ```
 
 ## 🎥 Video Walkthrough
-> **(Attach 1-3 min video showing main features — Survey, Recommendations, Profile, etc.)[https://youtu.be/OrY_tJoF7g0]**
+> **[https://youtu.be/OrY_tJoF7g0]**
 
 ## 🎥 Codebase Walkthrough
 > **(Attach 1-5 min video showing project structure, key components, auth flow, etc.)**
