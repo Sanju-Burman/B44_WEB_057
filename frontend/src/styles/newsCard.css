@@ -1,0 +1,26 @@
+.news-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 350px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.news-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.news-card p {
+    font-size: 0.95rem;
+    color: #444;
+}
+
+.news-date {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #888;
+}
