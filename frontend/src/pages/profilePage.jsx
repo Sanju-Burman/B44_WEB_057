@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import SavedDestinations from "../components/profile/SavedDestinations";
+import { useNavigate } from "react-router-dom";
 
 const ProfilePage = () => {
     const [user, setUser] = useState(null);
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         const storedUser = JSON.parse(localStorage.getItem("User"));
@@ -10,7 +13,10 @@ const ProfilePage = () => {
     }, []);
 
     if (!user) {
-        return <div className="p-8">Loading user information...</div>;
+        return <div className="p-8">
+            Loading user information...
+            {navigate("/auth")}
+        </div>;
     }
 
     return (
