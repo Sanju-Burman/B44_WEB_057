@@ -13,18 +13,28 @@ const API = axios.create({
     }
 });
 
+// Interceptor to add Authorization header
+API.interceptors.request.use((config) => {
+    if (config.skipAuth) { // If config has skipAuth flag, don't attach token
+        const token = localStorage.getItem("accessToken");
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
+        }
+    }
+    return config;
+}, (error) => {
+    return Promise.reject(error);
+});
+
 export const uploadForm = async (data) => {
     try {
         if (!data || typeof data !== "object") {
             throw new Error("Invalid data: Data must be a valid object.");
         }
-
-        const response = await API.post("/survey", data);
-
+        const response = await API.post("/survey", data, { skipAuth: true });
         if (response.status === 201) {
             localStorage.setItem("surveyData", JSON.stringify(data));
         }
-
         return response;
     } catch (error) {
         console.error("Failed to upload form:", error);
@@ -77,7 +87,7 @@ export const refreshToken = async (token) => {
 
 export const recommendetionData = async (storedData) => {
     try {
-        const response = API.post("/api/recom", storedData);
+        const response = API.post("/api/recom", storedData, { skipAuth: true });
         return (await response).data;
     } catch (error) {
         console.error({ msg: "fail for recommendation", error })
@@ -92,7 +102,7 @@ export const fetchDestinations = async () => {
         return cachedDestinations;
     }
     try {
-        const response = await API.get('/destinations');
+        const response = await API.get('/destinations', { skipAuth: true });
         cachedDestinations = response.data;
         return cachedDestinations;
     } catch (error) {
