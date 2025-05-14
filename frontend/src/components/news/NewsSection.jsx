@@ -1,4 +1,4 @@
-import '../../styles/NewsCard.css';
+// import '../../styles/NewsCard.css';
 import NewsCard from './NewsCard';
 
 const dummyNews = [
