@@ -1,4 +1,4 @@
-import '../../styles/NewsCard.css';
+import '../../styles/newsCard.css';
 
 const NewsCard = ({ title, summary, date }) => {
     return (
